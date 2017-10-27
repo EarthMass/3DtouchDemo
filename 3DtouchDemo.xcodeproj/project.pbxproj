@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		13A35A9C1F974FFC00F8004A /* ScanVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 13A35A9B1F974FFC00F8004A /* ScanVC.m */; };
 		13E6F3F51F97244500D99662 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E6F3F41F97244500D99662 /* AppDelegate.m */; };
 		13E6F3F81F97244500D99662 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 13E6F3F71F97244500D99662 /* ViewController.m */; };
 		13E6F3FB1F97244500D99662 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 13E6F3F91F97244500D99662 /* Main.storyboard */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		13A35A9A1F974FFC00F8004A /* ScanVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanVC.h; sourceTree = "<group>"; };
+		13A35A9B1F974FFC00F8004A /* ScanVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanVC.m; sourceTree = "<group>"; };
 		13E6F3F01F97244500D99662 /* 3DtouchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 3DtouchDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13E6F3F31F97244500D99662 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		13E6F3F41F97244500D99662 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -62,6 +65,8 @@
 				13E6F3F41F97244500D99662 /* AppDelegate.m */,
 				13E6F3F61F97244500D99662 /* ViewController.h */,
 				13E6F3F71F97244500D99662 /* ViewController.m */,
+				13A35A9A1F974FFC00F8004A /* ScanVC.h */,
+				13A35A9B1F974FFC00F8004A /* ScanVC.m */,
 				13E6F3F91F97244500D99662 /* Main.storyboard */,
 				13E6F3FC1F97244500D99662 /* Assets.xcassets */,
 				13E6F3FE1F97244500D99662 /* LaunchScreen.storyboard */,
@@ -145,6 +150,7 @@
 				13E6F3F81F97244500D99662 /* ViewController.m in Sources */,
 				13E6F4031F97244500D99662 /* main.m in Sources */,
 				13E6F3F51F97244500D99662 /* AppDelegate.m in Sources */,
+				13A35A9C1F974FFC00F8004A /* ScanVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,8 +286,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = 3DtouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ghx.-DtouchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghx.3dtouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -293,8 +300,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = 3DtouchDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.ghx.-DtouchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghx.3dtouchDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import <UIKit/UIKit.h>
+#import "ViewController.h"
 
 @interface AppDelegate ()
 
@@ -14,10 +16,78 @@
 
 @implementation AppDelegate
 
-
+//首次启动APP调用的方法
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    /*
+     code init ViewController
+     */
+    ViewController * viewC = [[ ViewController alloc] init];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:viewC];
+    
+    [self.window setRootViewController:nav];
+    [self.window makeKeyAndVisible];
+
+    
+    //在动态添加快捷可选项前,需要用判断是否支持3D Touch功能,以免在不支持的设备上运行程序导致闪退
+    if ([self respondsToSelector:@selector(traitCollection)])
+    {
+          if ([self.window.traitCollection respondsToSelector:@selector(forceTouchCapability)])
+              {
+                    if (self.window.traitCollection.forceTouchCapability == UIForceTouchCapabilityAvailable)
+                        {
+                              // 支持3D Touch
+                            [self creatShortcutItem];  //动态创建应用图标上的3D touch快捷选项
+                            
+                            
+                            UIApplicationShortcutItem *shortcutItem = [launchOptions valueForKey:UIApplicationLaunchOptionsShortcutItemKey];
+                            //如果是从快捷选项标签启动app，则根据不同标识执行不同操作，然后返回NO，防止调用- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler
+                            if (shortcutItem) {
+                                //判断设置的快捷选项标签唯一标识，根据不同标识执行不同操作
+                                if ([shortcutItem.type isEqualToString:@"com.yang.share"]) {
+                                    //进入分享页面
+                                    NSLog(@"新启动APP-- 分享");
+                                }
+                                
+                                return NO;
+                            }
+                            }
+                    else
+                        {
+                              // 不支持3D Touch
+                            }
+                  }
+    }
+    
+
     return YES;
+}
+
+//如果APP没被杀死，还存在后台，点开Touch会调用该代理方法
+- (void)application:(UIApplication *)application performActionForShortcutItem:(UIApplicationShortcutItem *)shortcutItem completionHandler:(void (^)(BOOL))completionHandler {
+    if (shortcutItem) {
+        //判断设置的快捷选项标签唯一标识，根据不同标识执行不同操作
+        if ([shortcutItem.type isEqualToString:@"com.yang.share"]) {
+            //进入分享页面
+            NSLog(@"APP没被杀死-- 分享");
+        }
+    }
+    
+    if (completionHandler) {
+        completionHandler(YES);
+    }
+}
+
+- (void)creatShortcutItem {
+    //创建系统风格的icon
+    UIApplicationShortcutIcon *icon = [UIApplicationShortcutIcon iconWithType:UIApplicationShortcutIconTypeShare];
+    //创建快捷选项
+    UIApplicationShortcutItem * item = [[UIApplicationShortcutItem alloc]initWithType:@"com.yang.share" localizedTitle:@"分享11" localizedSubtitle:@"分享副标题" icon:icon userInfo:nil];
+    
+    //添加到快捷选项数组
+    [UIApplication sharedApplication].shortcutItems = @[item,item,item,item];
 }
 
 
